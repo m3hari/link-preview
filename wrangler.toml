@@ -1,0 +1,5 @@
+name = "link-meta"
+type = "webpack"
+account_id = "c5f5934c253ceef5b2cfb4a1ee19124e"
+workers_dev = true
+zone_id = ""

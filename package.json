@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "my-worker",
+  "version": "1.0.0",
+  "description": "A template for kick starting a Cloudflare Workers project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "Mehari Geta <gm3hari@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "cross-fetch": "^3.0.4",
+    "query-string": "^6.12.0"
+  }
+}
