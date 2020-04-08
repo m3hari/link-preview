@@ -10,4 +10,4 @@ Fast URL meta data microservice on cloudflare workers
 - [ ] Send errors to Sentry
 - [ ] User cloud logger service for logs
 
-- [ ] _PERF_ Work net streams without fully loading the page
+- [ ] **PERF** Use network streams to improve performance without fully loading a page
