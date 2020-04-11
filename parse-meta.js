@@ -1,36 +1,34 @@
+import { ConnectionError, ValidationError } from './error'
+
 const cheerio = require('cheerio')
 
-function getDescription(doc) {
-  let description = doc(`meta[name=description]`).attr(`content`)
-
-  if (description === undefined) {
-    description = doc(`meta[name=Description]`).attr(`content`)
-  }
-
-  if (description === undefined) {
-    description = doc(`meta[property='og:description']`).attr(`content`)
-  }
-
-  return description
+const getOGProperty = (dom, prop) => {
+  return dom(`meta[property='og:${prop}']`).attr(`content`)
 }
 
-function getTitle(doc) {
-  let title = doc(`meta[property='og:title']`).attr(`content`)
+const getDescription = dom =>
+  dom(`meta[property='og:description']`).attr(`content`) ||
+  dom(`meta[name=description]`).attr(`content`) ||
+  dom(`meta[name=Document]`).attr(`content`)
 
-  if (!title) {
-    title = doc(`title`).text()
-  }
+const getTitle = dom =>
+  dom(`meta[property='og:title']`).attr(`content`) || dom(`title`).text()
 
-  return title
-}
+const getSiteName = dom => dom(`meta[property='og:site_name']`).attr(`content`)
 
-function getSiteName(doc) {
-  return doc(`meta[property='og:site_name']`).attr(`content`)
-}
+const getImage = dom => dom(`meta[property='og:image']`).attr(`content`)
+
+const getFaviconPath = dom => dom(`link[rel=icon]`).attr(`href`)
 
 export async function getMeta(url) {
-  const meta = { url }
+  let urlDetail
+  try {
+    urlDetail = new URL(url)
+  } catch (error) {
+    throw new ValidationError('Invalid URL')
+  }
 
+  const { href, hostname, origin } = urlDetail
   try {
     const response = await fetch(url)
     const contentType = response.headers.get('content-type')
@@ -50,19 +48,19 @@ export async function getMeta(url) {
 
       console.log('Build DOM ... OK')
 
-      meta.siteName = getSiteName(doc)
-      meta.domain = ''
-      meta.title = getTitle(doc)
-      meta.description = getDescription(doc)
-      meta.images = ''
-      meta.favicons = ''
+      return {
+        url: href,
+        siteName: getSiteName(doc) || hostname,
+        title: getTitle(doc),
+        image: getImage(doc) || `${origin}${getFaviconPath(doc)}`,
+        description: getDescription(doc),
+      }
     } else {
       // TODO
     }
   } catch (error) {
     // TODO send log to cloud(sentry) logger
     console.error({ url, error })
+    throw new ConnectionError("Can't reach the server for the given url")
   }
-
-  return meta
 }

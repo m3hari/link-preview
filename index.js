@@ -1,6 +1,5 @@
 const querystring = require('query-string')
 const { getMeta } = require('./parse-meta')
-const { VALID_URL_REGEX } = require('./util')
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
@@ -15,27 +14,22 @@ async function handleRequest(request) {
 
   if (url) {
     console.log(`Processing ${url}`)
-    const isValidUrl = url
-      .replace(/\n/g, ' ')
-      .split(' ')
-      .find(token => VALID_URL_REGEX.test(token))
-
-    if (!isValidUrl) {
-      return new Response('Invalid URL', {
-        status: 422,
+    try {
+      const result = await getMeta(url)
+      return new Response(JSON.stringify(result), {
+        headers: { 'content-type': 'application/json' },
+      })
+    } catch (error) {
+      return new Response(error.message, {
+        status: error.status,
       })
     }
-
-    const result = await getMeta(url)
-
-    return new Response(JSON.stringify(result), {
-      headers: { 'content-type': 'application/json' },
-    })
   }
 
   return new Response(
     'url is required parameter. e.g /?url=http://github.com',
     {
+      status: 422,
       headers: { 'content-type': 'application/json' },
     },
   )
