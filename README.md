@@ -3,11 +3,12 @@
 URL meta data (micro) service for link previewing.
 Hosted on [cloudflare workers](https://workers.cloudflare.com/)
 
-### **Disclaimer** : This is not **[OG](https://ogp.me/)** meta extractor/parser. It just extracts meta information that relevant for link **preview**
+### **Disclaimer** 
+This is not **[OG](https://ogp.me/)** meta extractor/parser. It just extracts meta information that is relevant for link **previewing**
 
 ### Usage
 
-Pass your url as query string for this **service**.
+Send your url as query string for this **service**.
 
 **Example:**
 
@@ -45,7 +46,7 @@ Response Format
 
 - [ ] Add tests
 - [ ] Send errors to Sentry
-
+- [ ] Support Vidieos and other content-types
 - [ ] **PERF** Use network streams to improve performance without fully loading a page as implemented here https://github.com/velocityzen/meta-extractor
 
 Note: You can use the `getMeta` function in `<root>/get-meta.js` to process a link with out using the service.
