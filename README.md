@@ -3,7 +3,8 @@
 URL meta data (micro) service for link previewing.
 Hosted on [cloudflare workers](https://workers.cloudflare.com/)
 
-### **Disclaimer** 
+### **Disclaimer**
+
 This is not **[OG](https://ogp.me/)** meta extractor/parser. It just extracts meta information that is relevant for link **previewing**
 
 ### Usage
@@ -46,7 +47,7 @@ Response Format
 
 - [ ] Add tests
 - [ ] Send errors to Sentry
-- [ ] Support extracting youtube videos thumbnail and oterh content-types
+- [ ] Support extracting youtube videos thumbnail and other content-types
 - [ ] **PERF** Use network streams to improve performance without fully loading a page as implemented here https://github.com/velocityzen/meta-extractor
 
 Note: You can use the `getMeta` function in `<root>/get-meta.js` to process a link with out using the service.

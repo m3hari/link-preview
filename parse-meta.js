@@ -7,18 +7,20 @@ const getOGProperty = (dom, prop) => {
 }
 
 const getDescription = dom =>
-  dom(`meta[property='og:description']`).attr(`content`) ||
+  getOGProperty(dom, 'description') ||
   dom(`meta[name=description]`).attr(`content`) ||
   dom(`meta[name=Document]`).attr(`content`)
 
-const getTitle = dom =>
-  dom(`meta[property='og:title']`).attr(`content`) || dom(`title`).text()
+const getTitle = dom => getOGProperty(dom, 'title') || dom(`title`).text()
 
-const getSiteName = dom => dom(`meta[property='og:site_name']`).attr(`content`)
+const getSiteName = dom => getOGProperty(dom, 'site_name')
 
-const getImage = dom => dom(`meta[property='og:image']`).attr(`content`)
+const getImage = dom => getOGProperty(dom, 'image')
 
-const getFaviconPath = dom => dom(`link[rel=icon]`).attr(`href`)
+const getFaviconPath = dom => {
+  const fav = dom(`link[rel=icon]`).attr(`href`)
+  return fav ? `${origin}${fav}` : null
+}
 
 export async function getMeta(url) {
   let urlDetail
@@ -50,10 +52,10 @@ export async function getMeta(url) {
 
       return {
         url: href,
-        siteName: getSiteName(doc) || hostname,
-        title: getTitle(doc),
-        image: getImage(doc) || `${origin}${getFaviconPath(doc)}`,
-        description: getDescription(doc),
+        siteName: getSiteName(doc) || hostname || '',
+        title: getTitle(doc) || '',
+        image: getImage(doc) || getFaviconPath(doc, origin) || '',
+        description: getDescription(doc) || '',
       }
     } else {
       // TODO
