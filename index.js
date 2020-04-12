@@ -1,21 +1,18 @@
-const querystring = require('query-string')
-const { getMeta } = require('./parse-meta')
+import querystring from 'query-string'
+import getMeta from './lib'
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
 
-/**
- * Respond with hello worker text
- * @param {Request} request
- */
 async function handleRequest(request) {
   const { url } = querystring.parse(new URL(request.url).search || '')
 
   if (url) {
-    console.log(`Processing ${url}`)
     try {
-      const result = await getMeta(url)
+      const result = await getMeta(url, {
+        lang: request.headers.get('accept-language'),
+      })
       return new Response(JSON.stringify(result), {
         headers: { 'content-type': 'application/json' },
       })

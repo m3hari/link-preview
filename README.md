@@ -1,5 +1,7 @@
 # Link Preview Meta
 
+![Test](https://github.com/m3hari/link-preview-meta/workflows/test/badge.svg)
+
 URL meta data (micro) service for link previewing.
 Hosted on [cloudflare workers](https://workers.cloudflare.com/)
 
@@ -33,21 +35,19 @@ Response:
 
 Response Format
 
-- `url : <String> The full url of the site`
+- `url : <String> The original requested url`
 
 - `title : <String> The title of the page. Tries meta.og:title and fallbacks to page.title`
 
-- `description : <String> The description of the page. Tries meta.og.description and fallbacks to meta.description`
+- `description : <String> A description of about the page. Tries meta.og.description and fallbacks to meta.description`
 
-- `image : <String> a link to an image representing the page.Tries meta.og.image and fallbacks to page favicon`
+- `image : <String> A link to an image representing the page.Tries meta.og.image and fallbacks to page favicon`
 
 - `siteName : <String> The name of the site og:site_name fallbacks to hostname of the site`
 
 ### TODOS
 
-- [ ] Add tests
-- [ ] Send errors to Sentry
-- [ ] Support extracting youtube videos thumbnail and other content-types
+- [x] Add tests
 - [ ] **PERF** Use network streams to improve performance without fully loading a page as implemented here https://github.com/velocityzen/meta-extractor
 
 Note: You can use the `getMeta` function in `<root>/get-meta.js` to process a link with out using the service.
