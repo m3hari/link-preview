@@ -2,16 +2,14 @@
 
 ![Test](https://github.com/m3hari/link-preview-meta/workflows/Tests/badge.svg)
 
-URL meta data (micro) service for link previewing. 
+URL meta data (micro) service for link previewing.
 Hosted on [cloudflare workers](https://workers.cloudflare.com/)
-
-
 
 ## Inspiration
 
-|**Google Keep** | **Telegram**|
-|:---:|:---:|
-|![sample google keep](https://lh3.googleusercontent.com/_2f_HE1sctWqS-y7fdrJmSk449cLqFS9qfdogyxPfQDo452EB7x7RrAqpFIZ8BFGkE7Jn5qPe4hCSUDWVBMrnfJcuB_Qz7mQoTJBoJPRMuSHoV6VV3dfjAWuPj0fFI2QW60Cjxy2Aw=w1080-h1011-no) | ![sample telegram](https://lh3.googleusercontent.com/aahJmyhmDmGeO5rbQCfSej5B675CjtxTaXDEOCIFQjnG6W4KKTBVdfmUqUFMTVHCNaPDl3n0KaYDquA16dNgQM07tgvvM3OiIw1dHfws4I2IyDkRFfUe8Y_dhqzJe22Zh2mLp6Ckuw=w972-h1858-no)|
+|                                                                                                  **Google Keep**                                                                                                   |                                                                                                  **Telegram**                                                                                                  |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| ![sample google keep](https://lh3.googleusercontent.com/_2f_HE1sctWqS-y7fdrJmSk449cLqFS9qfdogyxPfQDo452EB7x7RrAqpFIZ8BFGkE7Jn5qPe4hCSUDWVBMrnfJcuB_Qz7mQoTJBoJPRMuSHoV6VV3dfjAWuPj0fFI2QW60Cjxy2Aw=w1080-h1011-no) | ![sample telegram](https://lh3.googleusercontent.com/aahJmyhmDmGeO5rbQCfSej5B675CjtxTaXDEOCIFQjnG6W4KKTBVdfmUqUFMTVHCNaPDl3n0KaYDquA16dNgQM07tgvvM3OiIw1dHfws4I2IyDkRFfUe8Y_dhqzJe22Zh2mLp6Ckuw=w972-h1858-no) |
 
 ### Usage
 
@@ -37,12 +35,9 @@ Response:
 }
 ```
 
-
-### TODOS
-
-- [x] Add tests
-- [ ] **PERF** Use network streams to improve performance without fully loading a page as implemented here https://github.com/velocityzen/meta-extractor
-
-
 **Disclaimer**
 This is not **[OG](https://ogp.me/)** meta extractor/parser. It just extracts meta information that is relevant for link **previewing**
+
+## License
+
+[MIT](LICENSE)
