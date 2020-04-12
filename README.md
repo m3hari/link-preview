@@ -1,6 +1,6 @@
 # Link Preview Meta
 
-![Test](https://github.com/m3hari/link-preview-meta/workflows/test/badge.svg)
+![Test](https://github.com/m3hari/link-preview-meta/workflows/Tests/badge.svg)
 
 URL meta data (micro) service for link previewing.
 Hosted on [cloudflare workers](https://workers.cloudflare.com/)
