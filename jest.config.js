@@ -5,6 +5,6 @@ module.exports = {
   clearMocks: true,
   setupFiles: ['./jest.setup.js'],
   coverageDirectory: 'coverage',
-
+  testMatch: ['**/?(*.)+(unit|integration).[jt]s?(x)'],
   testEnvironment: 'node',
 }

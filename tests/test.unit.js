@@ -1,4 +1,5 @@
 import getMeta from '../lib/index'
+import { ValidationError } from '../lib/error'
 describe('API', function() {
   it('Returns correct format', async () => {
     const url = 'https://google.com/'
@@ -12,6 +13,9 @@ describe('API', function() {
     })
   })
 
+  it('Validates URL', async () => {
+    await expect(getMeta('youtubecom')).rejects.toThrow(/Invalid URL/)
+  })
   it('Extract correct data', async () => {
     const url = 'https://www.youtube.com/watch?v=BtN-goy9VOY'
     const result = await getMeta(url, { lang: 'en-US,en;' })

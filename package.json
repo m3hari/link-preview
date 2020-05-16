@@ -8,10 +8,11 @@
     "dev": "wrangler dev",
     "preview": "wrangler preview --watch",
     "test": "jest",
+    "test:ci": "jest --coverage",
     "format": "prettier --write '**/*.{js,json,md}' --ignore-path .prettierignore "
   },
   "dependencies": {
-    "cheerio": "1.x"
+    "cheerio": "^1.0.0-rc.3"
   },
   "devDependencies": {
     "@babel/core": "7.9.x",
