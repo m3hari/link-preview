@@ -13,7 +13,7 @@ Send your url as parameter to the **service**.
 
 **Example:**
 
-https://lmeta.mehari.workers.dev/?url=http://github.com/m3hari&pretty
+https://meta.mehari.workers.dev/?url=http://github.com/m3hari&pretty
 
 Response:
 

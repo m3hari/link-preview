@@ -1,4 +1,4 @@
-name = "lmeta"
+name = "meta"
 type = "webpack"
 workers_dev = true
 account_id = "4f3edec809c726ee2e12ff807af27b72"
