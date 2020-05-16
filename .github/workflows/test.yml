@@ -1,7 +1,11 @@
 name: Tests
 
-on: [push]
-  - "!**/*.md"
+on:
+  push:
+    branches:
+      - "master"
+    paths:
+      - "!**/*.md"
 
 jobs:
   integration:
