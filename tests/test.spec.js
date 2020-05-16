@@ -1,6 +1,6 @@
 import getMeta from '../lib/index'
 describe('API', function() {
-  it('returns correct format', async () => {
+  it('Returns correct format', async () => {
     const url = 'https://google.com/'
     const result = await getMeta(url)
     expect(result).toEqual({

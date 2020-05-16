@@ -2,22 +2,18 @@
 
 ![Test](https://github.com/m3hari/link-preview-meta/workflows/Tests/badge.svg)
 
-URL meta data (micro) service for link previewing.
+URL metadata (micro) service for link previewing.
 Hosted on [cloudflare workers](https://workers.cloudflare.com/)
 
-## Inspiration
+## Usage
 
-|                                                                                                  **Google Keep**                                                                                                   |                                                                                                  **Telegram**                                                                                                  |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| ![sample google keep](https://lh3.googleusercontent.com/_2f_HE1sctWqS-y7fdrJmSk449cLqFS9qfdogyxPfQDo452EB7x7RrAqpFIZ8BFGkE7Jn5qPe4hCSUDWVBMrnfJcuB_Qz7mQoTJBoJPRMuSHoV6VV3dfjAWuPj0fFI2QW60Cjxy2Aw=w1080-h1011-no) | ![sample telegram](https://lh3.googleusercontent.com/aahJmyhmDmGeO5rbQCfSej5B675CjtxTaXDEOCIFQjnG6W4KKTBVdfmUqUFMTVHCNaPDl3n0KaYDquA16dNgQM07tgvvM3OiIw1dHfws4I2IyDkRFfUe8Y_dhqzJe22Zh2mLp6Ckuw=w972-h1858-no) |
+Send your url as parameter to the **service**.
 
-### Usage
-
-Send your url as parameter for the **service**.
+?url=<your-url>&pretty
 
 **Example:**
 
-https://link-preview-meta.mamome.workers.dev?url=http://github.com/m3hari
+https://lmeta.mehari.workers.dev/?url=http://github.com/m3hari&pretty
 
 Response:
 

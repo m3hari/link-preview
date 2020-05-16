@@ -1,25 +1,27 @@
 {
   "name": "link-preview-meta",
   "version": "1.0.0",
-  "description": "URL meta data (micro) service for link previewing.",
+  "author": "Mehari Geta <gm3hari@gmail.com>",
+  "description": "URL metadata (micro) service for link previewing.",
   "main": "index.js",
   "scripts": {
+    "dev": "wrangler dev",
+    "preview": "wrangler preview --watch",
     "test": "jest",
     "format": "prettier --write '**/*.{js,json,md}' --ignore-path .prettierignore "
   },
-  "author": "Mehari Geta <gm3hari@gmail.com>",
-  "license": "MIT",
+  "dependencies": {
+    "cheerio": "1.x"
+  },
   "devDependencies": {
     "@babel/core": "7.9.x",
     "@babel/preset-env": "7.9.x",
+    "@cloudflare/wrangler": "1.x",
     "babel-jest": "25.3.x",
+    "cross-fetch": "3.x",
     "isomorphic-fetch": "2.2.x",
     "jest": "25.3.x",
-    "prettier": "^1.18.2"
+    "prettier": "1.18.x"
   },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
-    "cross-fetch": "^3.0.4",
-    "query-string": "^6.12.0"
-  }
+  "license": "MIT"
 }
