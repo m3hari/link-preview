@@ -7,7 +7,7 @@ Hosted on [cloudflare workers](https://workers.cloudflare.com/)
 
 ## Usage
 
-- _url_ : Link url
+- _url_ : The url you want to process
 
 - _pretty_ : Option to format the json response
 
