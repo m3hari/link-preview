@@ -7,9 +7,9 @@ Hosted on [cloudflare workers](https://workers.cloudflare.com/)
 
 ## Usage
 
-Send your url as parameter to the **service**.
+- _url_ : Link url
 
-?url=<your-url>&pretty
+- _pretty_ : Option to format the json response
 
 **Example:**
 
