@@ -17,7 +17,11 @@ async function handleRequest(request) {
         lang: request.headers.get('accept-language'),
       })
       return new Response(JSON.stringify(result, null, format ? 2 : 0), {
-        headers: { 'content-type': 'application/json' },
+        headers: {
+          'content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET'
+        },
       })
     } catch ({ message, status }) {
       return new Response(message, { status })
